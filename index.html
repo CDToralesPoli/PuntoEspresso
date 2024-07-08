@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto Espresso</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./scripts/main.js"></script>
-    <script defer src="./scripts/carrito.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/main.js"></script>
 </head>
 <body>
     <header>
@@ -14,17 +14,17 @@
         <nav>
             <ul class="menu">
                 <li>
-                    <button id="todos" class="boton-categoria"><i></i> Todos los productos</button>
+                    <button id="todos" class="boton-menu boton-categoria active">Todos los productos</button>
                 </li>
                 <li>
-                    <button id="capsulas" class="boton-categoria"><i></i> Capsulas</button>
+                    <button id="capsulas" class="boton-menu boton-categoria">Cápsulas</button>
                 </li>
                 <li>
-                    <button id="maquinas" class="boton-categoria"><i></i> Maquinas</button>
+                    <button id="maquinas" class="boton-menu boton-categoria">Máquinas</button>
                 </li>
                 <li>
-                    <a class="boton-carrito" href="./html/carrito.html">
-                        <i"></i> Carrito <span id="items-carrito" class="items-carrito">0</span>
+                    <a class="boton-menu boton-carrito" href="./carrito.html">
+                        Carrito<span id="items-carrito" class="items-carrito">0</span>
                     </a>
                 </li>
             </ul>
@@ -32,9 +32,9 @@
     </header>
     <main>
         <h2 class="titulo-pagina" id="titulo-pagina">Todos los productos</h2>
-        <section id="contenedor-productos" class="contenedor-productos">
-
-        </section>
+        <div id="contenedor-productos" class="contenedor-productos">
+            
+        </div>
     </main>
     <footer>
         <p class="texto-footer">Punto Espresso 2024</p>

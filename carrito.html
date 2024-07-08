@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Espresso</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/carrito.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Punto Espresso</h1>
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a class="boton-menu boton-volver active" href="./index.html">
+                        Volver a la tienda
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="contenedor-carrito">
+            <p id="carrito-vacio" class="carrito-vacio">Su carrito está vacío.</p>
+            <div id="productos" class="productos disabled">
+                
+            </div>
+            <div id="carrito-acciones" class="carrito-acciones disabled">
+                <div class="carrito-acciones-izquierda">
+                    <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar el carrito</button>
+                </div>
+                <div class="carrito-acciones-derecha">
+                    <div class="carrito-acciones-total">
+                        <p>Total:</p>
+                        <p id="total">$0</p>
+                    </div>
+                    <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Finalizar Compra</button>
+                </div>
+            </div>
+            <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por su compra.</p>
+        </div>
+    </main>
+    <footer>
+        <p class="texto-footer">Punto Espresso 2024</p>
+    </footer>
+</body>
+</html>
