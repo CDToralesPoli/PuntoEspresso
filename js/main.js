@@ -122,6 +122,9 @@ const productos = [
     }
 ]
 
+const cliente = [
+]
+
 /* VARIABLES */
 let contenedorProductos = document.getElementById("contenedor-productos")
 let itemsCarrito = document.getElementById("items-carrito")

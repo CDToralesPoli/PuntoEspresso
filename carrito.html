@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto Espresso</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/carrito.js"></script>
 </head>
 <body>
@@ -24,8 +24,20 @@
     <main>
         <div class="contenedor-carrito">
             <p id="carrito-vacio" class="carrito-vacio">Su carrito está vacío.</p>
+            <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por su compra.</p>
             <div id="productos" class="productos disabled">
                 
+            </div>
+            <div id =contenedor-datos-cliente class="contenedor-datos-cliente disabled">
+                <form id="datos-cliente" class="datos-cliente">
+                    <input type="text" name="name" placeholder="Nombre y Apellido"/>
+                    <input type="text" name="address" placeholder="Dirección"/>
+                    <input type="tel" name="telephone" placeholder="Teléfono"/>
+                    <input type="email" name="email" placeholder="Correo Electrónico"/>
+                </form>
+            </div>
+            <div id="resumen-compra" class="resumen-compra disabled">
+
             </div>
             <div id="carrito-acciones" class="carrito-acciones disabled">
                 <div class="carrito-acciones-izquierda">
@@ -36,10 +48,10 @@
                         <p>Total:</p>
                         <p id="total">$0</p>
                     </div>
-                    <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Finalizar Compra</button>
+                    <button id="carrito-acciones-comprar" class="carrito-acciones-comprar disabled">Ir al Checkout</button>
+                    <button type="submit" form="datos-cliente" id="form-acciones-comprar" class="form-acciones-comprar disabled">Finalizar Compra</button>
                 </div>
             </div>
-            <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por su compra.</p>
         </div>
     </main>
     <footer>
