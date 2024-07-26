@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto Espresso</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="./js/carrito.js"></script>
 </head>
 <body>
@@ -30,10 +33,10 @@
             </div>
             <div id =contenedor-datos-cliente class="contenedor-datos-cliente disabled">
                 <form id="datos-cliente" class="datos-cliente">
-                    <input type="text" name="name" placeholder="Nombre y Apellido"/>
-                    <input type="text" name="address" placeholder="Dirección"/>
-                    <input type="tel" name="telephone" placeholder="Teléfono"/>
-                    <input type="email" name="email" placeholder="Correo Electrónico"/>
+                    <input type="text" name="name" placeholder="Nombre y Apellido" required/>
+                    <input type="text" name="address" placeholder="Dirección" required/>
+                    <input type="number" name="telephone" placeholder="Teléfono" required/>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required/>
                 </form>
             </div>
             <div id="resumen-compra" class="resumen-compra disabled">

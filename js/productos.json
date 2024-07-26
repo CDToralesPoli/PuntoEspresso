@@ -1,0 +1,123 @@
+[
+    {
+        "id": "capsula-01",
+        "titulo": "Ristretto ",
+        "imagen": "./img/capsulas/01.png",
+        "categoria": 
+            {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+            },
+        "precio": 13000
+    },
+    {
+        "id": "capsula-02",
+        "titulo": "Colombia  ",
+        "imagen": "./img/capsulas/02.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 16000
+    },
+    {
+        "id": "capsula-03",
+        "titulo": "Chiaro    ",
+        "imagen": "./img/capsulas/03.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 14500
+    },
+    {
+        "id": "capsula-04",
+        "titulo": "Shanghai  ",
+        "imagen": "./img/capsulas/04.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 15000
+    },
+    {
+        "id": "capsula-05",
+        "titulo": "Lungo     ",
+        "imagen": "./img/capsulas/05.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 14500
+    },
+    {
+        "id": "capsula-06",
+        "titulo": "Arpeggio   ",
+        "imagen": "./img/capsulas/06.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 14500
+    },
+    {
+        "id": "capsula-07",
+        "titulo": "Tokyo     ",
+        "imagen": "./img/capsulas/07.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 14500
+    },
+    {
+        "id": "capsula-08",
+        "titulo": "Vienna    ",
+        "imagen": "./img/capsulas/08.png",
+        "categoria": {
+            "nombre": "Cápsulas",
+            "id": "capsulas"
+        },
+        "precio": 14500
+    },
+    {
+        "id": "maquina-01",
+        "titulo": "Citiz     ",
+        "imagen": "./img/maquinas/01.png",
+        "categoria": {
+            "nombre": "Máquinas",
+            "id": "maquinas"
+        },
+        "precio": 368290
+    },
+    {
+        "id": "maquina-02",
+        "titulo": "Lattissima",
+        "imagen": "./img/maquinas/02.png",
+        "categoria": {
+            "nombre": "Máquinas",
+            "id": "maquinas"
+        },
+        "precio": 755090
+    },
+    {
+        "id": "maquina-03",
+        "titulo": "Aeroccino ",
+        "imagen": "./img/maquinas/03.png",
+        "categoria": {
+            "nombre": "Máquinas",
+            "id": "maquinas"
+        },
+        "precio": 159790
+    },
+    {
+        "id": "maquina-04",
+        "titulo": "Essenza   ",
+        "imagen": "./img/maquinas/04.png",
+        "categoria": {
+            "nombre": "Máquinas",
+            "id": "maquinas"
+        },
+        "precio": 228390
+    }
+]

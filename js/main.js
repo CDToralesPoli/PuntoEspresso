@@ -1,136 +1,23 @@
 /* PRODUCTOS*/
-const productos = [
-    {
-        id: "capsula-01",
-        titulo: "Ristretto ",
-        imagen: "./img/capsulas/01.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 13000
-    },
-    {
-        id: "capsula-02",
-        titulo: "Colombia  ",
-        imagen: "./img/capsulas/02.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 16000
-    },
-    {
-        id: "capsula-03",
-        titulo: "Chiaro    ",
-        imagen: "./img/capsulas/03.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 14500
-    },
-    {
-        id: "capsula-04",
-        titulo: "Shanghai  ",
-        imagen: "./img/capsulas/04.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 15000
-    },
-    {
-        id: "capsula-05",
-        titulo: "Lungo     ",
-        imagen: "./img/capsulas/05.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 14500
-    },
-    {
-        id: "capsula-06",
-        titulo: "Arpeggio   ",
-        imagen: "./img/capsulas/06.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 14500
-    },
-    {
-        id: "capsula-07",
-        titulo: "Tokyo     ",
-        imagen: "./img/capsulas/07.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 14500
-    },
-    {
-        id: "capsula-08",
-        titulo: "Vienna    ",
-        imagen: "./img/capsulas/08.png",
-        categoria: {
-            nombre: "Cápsulas",
-            id: "capsulas"
-        },
-        precio: 14500
-    },
-    {
-        id: "maquina-01",
-        titulo: "Citiz     ",
-        imagen: "./img/maquinas/01.png",
-        categoria: {
-            nombre: "Máquinas",
-            id: "maquinas"
-        },
-        precio: 368290
-    },
-    {
-        id: "maquina-02",
-        titulo: "Lattissima",
-        imagen: "./img/maquinas/02.png",
-        categoria: {
-            nombre: "Máquinas",
-            id: "maquinas"
-        },
-        precio: 755090
-    },
-    {
-        id: "maquina-03",
-        titulo: "Aeroccino ",
-        imagen: "./img/maquinas/03.png",
-        categoria: {
-            nombre: "Máquinas",
-            id: "maquinas"
-        },
-        precio: 159790
-    },
-    {
-        id: "maquina-04",
-        titulo: "Essenza   ",
-        imagen: "./img/maquinas/04.png",
-        categoria: {
-            nombre: "Máquinas",
-            id: "maquinas"
-        },
-        precio: 228390
-    }
+let productos = [
 ]
 
-const cliente = [
+let cliente = [
 ]
 
-/* VARIABLES */
-let contenedorProductos = document.getElementById("contenedor-productos")
-let itemsCarrito = document.getElementById("items-carrito")
-let tituloPagina = document.getElementById("titulo-pagina")
-let botonesCategorias = document.querySelectorAll(".boton-categoria")
-let botonesAgregarAlCarrito = document.querySelectorAll(".producto-agregar")
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data
+        renderizarProductos(productos)
+    })
+
+
+const contenedorProductos = document.getElementById("contenedor-productos")
+const itemsCarrito = document.getElementById("items-carrito")
+const tituloPagina = document.getElementById("titulo-pagina")
+const botonesCategorias = document.querySelectorAll(".boton-categoria")
+const cantidadItem = document.querySelectorAll('.carrito-item-cantidad')
 
 /* RENDERIZAR PRODUCTOS */
 function renderizarProductos(arrayProductos) {
@@ -142,16 +29,40 @@ function renderizarProductos(arrayProductos) {
             <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.titulo}</h3>
-                <p class="producto-precio">$${producto.precio}</p>
+                <div class="selector-cantidad">
+                    <button id="restar-cantidad" class="restar-cantidad botones-selector-cantidad">-</button>
+                    <input type="text" value="1" class="carrito-item-cantidad" id=cantidad-${producto.id}>
+                    <button id="sumar-cantidad" class="sumar-cantidad botones-selector-cantidad">+</button>
+                    <p class="producto-precio">$${producto.precio}</p>
+                </div>
                 <button class="producto-agregar" id="${producto.id}">Agregar al carrito</button>
             </div>`
-        contenedorProductos.appendChild(div);
+        contenedorProductos.appendChild(div)
     })
+    
     actualizarBotonesAgregar()
 }
-renderizarProductos(productos)
 
-/* MOSTRAR PRODUCTOS POR CATEGORIAS */
+/* ACTUALIZAR BOTONES AGREGAR AL CARRITO */
+function actualizarBotonesAgregar() {
+
+    let botonesSumarCantidad = document.querySelectorAll('.sumar-cantidad');
+    botonesSumarCantidad.forEach(boton => {
+        boton.addEventListener("click", sumarCantidad)
+    })
+
+    let botonesRestarCantidad = document.querySelectorAll('.restar-cantidad');
+    botonesRestarCantidad.forEach(boton => {
+        boton.addEventListener('click',restarCantidad)
+    })
+
+    let botonesAgregarAlCarrito = document.querySelectorAll(".producto-agregar")
+    botonesAgregarAlCarrito.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito)
+    })
+}
+
+/* MOSTRAR PRODUCTOS SEGUN CATEGORIAS */
 botonesCategorias.forEach(boton => {
     boton.onclick = (e) => {
         botonesCategorias.forEach(boton => boton.classList.remove("active"))
@@ -166,43 +77,82 @@ botonesCategorias.forEach(boton => {
             renderizarProductos(productos)
         }
     }
-});
+})
 
-/*CARRITO, AGREGAR AL CARRITO Y LOCAL STORAGE*/
-let carrito;
+/* CARRITO */
+let carrito = [
+]
 
-let carritoLS = localStorage.getItem("productos-carrito")
-
-if (carritoLS) {
-    carrito = JSON.parse(carritoLS)
-    actualizarItemsCarrito()
-} else {
-    carrito = []
+/* ACTUALIZAR ITEMS ICONO CARRITO */
+function actualizarItemsCarrito() {
+    let nuevoItemCarrito = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
+    itemsCarrito.innerText = nuevoItemCarrito
 }
 
+/* AGREGAR AL CARRITO */
 function agregarAlCarrito(e) {
-    const idBoton = e.currentTarget.id;
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4b33a8, #785ce9)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+    const idBoton = e.currentTarget.id
+    console.log(idBoton)
+    const cantidad = document.getElementById('cantidad-' + idBoton)
+    const valor = parseInt(cantidad.value)
     const productoAgregado = productos.find(producto => producto.id === idBoton)
     if(carrito.some(producto => producto.id === idBoton)) {
         const index = carrito.findIndex(producto => producto.id === idBoton)
-        carrito[index].cantidad++
+        carrito[index].cantidad = carrito[index].cantidad + valor
     } else {
-        productoAgregado.cantidad = 1
+        productoAgregado.cantidad = valor
         carrito.push(productoAgregado)
     }
     actualizarItemsCarrito();
     localStorage.setItem("productos-carrito", JSON.stringify(carrito))
 }
 
-function actualizarItemsCarrito() {
-    let nuevoItemCarrito = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
-    itemsCarrito.innerText = nuevoItemCarrito
+/* LOCAL STORAGE */
+let carritoLS = localStorage.getItem("productos-carrito")
+
+if (carritoLS) {
+    carrito = JSON.parse(carritoLS)
+    actualizarItemsCarrito()
+} else {
+    carrito = [
+    ]
 }
 
-/* ACTUALIZAR BOTONES AGREGAR AL CARRITO */
-function actualizarBotonesAgregar() {
-    botonesAgregarAlCarrito = document.querySelectorAll(".producto-agregar")
-    botonesAgregarAlCarrito.forEach(boton => {
-        boton.addEventListener("click", agregarAlCarrito)
-    })
+/* SUMAR CANTIDAD DE UN ITEM */
+function sumarCantidad(event){
+    let buttonClicked = event.currentTarget
+    let selector = buttonClicked.parentElement
+    if (selector.getElementsByClassName('carrito-item-cantidad')[0].value<=99){
+    selector.getElementsByClassName('carrito-item-cantidad')[0].value ++
+    }
+}
+
+/* RESTAR CANTIDAD DE UN ITEM */
+function restarCantidad(event){
+    let buttonClicked = event.currentTarget
+    let selector = buttonClicked.parentElement
+    if((selector.getElementsByClassName('carrito-item-cantidad')[0].value)>1){
+        selector.getElementsByClassName('carrito-item-cantidad')[0].value --
+        console.log(selector.getElementsByClassName('carrito-item-cantidad')[0].value)
+    }
 }
